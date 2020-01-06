@@ -7,7 +7,7 @@ public class programparkir{
         int tarif_Parkir = 0;
         int  total_jam;
         Double jumlah_bayar;
-        double kembalian;
+        Double kembalian;
 
         System.out.println("WELCOME");  
         System.out.println("TO MY APPLICATION");  
@@ -22,20 +22,42 @@ public class programparkir{
         System.out.println("Kode Kendaraan");
         System.out.println();
         System.out.println("1.Mobil");
-        System.out.println("1.Motor");
+        System.out.println("2.Motor");
         System.out.println();
         System.out.println("Masukan Kode Kendaraan");
         System.out.println();
         int tipe = input_masuk.nextInt();
 
-        // Total_Jam_Parkir = jam_keluar-jam_masuk;
-        // Switch(tipe){
+        int total_Jam_Parkir = Jam_Keluar - Jam_Masuk;
+        int total_Jam_Parkir_Berikutnya  = Jam_Keluar - Jam_Masuk;
+        switch (tipe) {
+            case 1:
+            tarif_Parkir = 5000 + total_Jam_Parkir_Berikutnya*3000;
+            break;
 
+            default:
+            tarif_Parkir = 3000 + total_Jam_Parkir_Berikutnya*1500;
+            break;
+        }
 
-
-
-
-
-
-
+        System.out.println("Bayar Parkir");
+        System.out.println();
         
+        if(tipe==1){
+            System.out.println("Jenis Kendaraan Mobil");
+        }
+        else if(tipe==2){
+            System.out.println("Jenis Kendaraan Motor");
+
+        }
+        else{
+            System.out.println("Jenis Kendaraan Tidak Terdaftar");
+        }
+
+        System.out.println("No Polisi : " + No_Polisi);
+        System.out.println("Jam Masuk : " + Jam_Masuk+ "WIB");
+        System.out.println("Jam Keluar : "+ Jam_Keluar+ "WIB");
+        System.out.println("Lama parkir : "+ total_Jam_Parkir + "Jam");
+        System.out.println("Tarif Parkir = RP."+ tarif_Parkir);
+    }
+}       
