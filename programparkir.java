@@ -18,6 +18,7 @@ public class programparkir{
         int Jam_Masuk = input_masuk.nextInt();
         System.out.println("Masukan Jam Keluar");
         int Jam_Keluar = input_masuk.nextInt();
+        int out = Jam_Keluar;
         System.out.println();
         System.out.println("Kode Kendaraan");
         System.out.println();
@@ -27,9 +28,16 @@ public class programparkir{
         System.out.println("Masukan Kode Kendaraan");
         System.out.println();
         int tipe = input_masuk.nextInt();
+        if(Jam_Masuk > Jam_Keluar){
+            Jam_Keluar+=24;
+        }
 
         int total_Jam_Parkir = Jam_Keluar - Jam_Masuk;
-        int total_Jam_Parkir_Berikutnya  = Jam_Keluar - Jam_Masuk;
+        if(total_Jam_Parkir == 0){
+            total_Jam_Parkir = 1;
+        }
+        
+        int total_Jam_Parkir_Berikutnya  = total_Jam_Parkir - 1;
         switch (tipe) {
             case 1:
             tarif_Parkir = 5000 + total_Jam_Parkir_Berikutnya*3000;
@@ -55,9 +63,9 @@ public class programparkir{
         }
 
         System.out.println("No Polisi : " + No_Polisi);
-        System.out.println("Jam Masuk : " + Jam_Masuk+ "WIB");
-        System.out.println("Jam Keluar : "+ Jam_Keluar+ "WIB");
-        System.out.println("Lama parkir : "+ total_Jam_Parkir + "Jam");
+        System.out.println("Jam Masuk : " + Jam_Masuk+ " WIB");
+        System.out.println("Jam Keluar : "+ out+ " WIB");
+        System.out.println("Lama parkir : "+ total_Jam_Parkir + " Jam");
         System.out.println("Tarif Parkir = RP."+ tarif_Parkir);
     }
 }       
